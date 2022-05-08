@@ -75,13 +75,21 @@ function RegulaComponent() {
     )
 }
 
-function App(props) {
+// function App(props) {
+//
+//     if (props.authorized) {
+//         return <SecretComponent/>
+//     } else {
+//         return <RegulaComponent/>
+//     }
+// }
 
-    if (props.authorized) {
-        return <SecretComponent/>
-    } else {
-        return <RegulaComponent/>
-    }
+function App(props) {
+    return (
+        <>
+            {props.authorized ? <SecretComponent/> : <RegulaComponent/>}
+        </>
+    )
 }
 
 export default App;
