@@ -30,7 +30,7 @@ function App2() {
     )
 }
 
-const root2 = ReactDOM.createRoot(document.getElementById('array-destructuring'));
+const root2 = ReactDOM.createRoot(document.getElementById('use--effect'));
 root2.render(
     <React.StrictMode>
         <App2/>
