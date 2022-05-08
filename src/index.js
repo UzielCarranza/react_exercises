@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -29,6 +29,28 @@ function App2() {
         </>
     )
 }
+
+
+function App3() {
+    const [checked, toggle] = useReducer(
+        (checked => !checked), false);
+
+
+    return (
+        <>
+            <input type="checkbox" value={checked} onChange={toggle}/>
+            <p>{checked ? "checked" : "not checked"}</p>
+        </>
+    )
+
+}
+
+const root3 = ReactDOM.createRoot(document.getElementById('reducer'));
+root3.render(
+    <React.StrictMode>
+        <App3/>
+    </React.StrictMode>
+);
 
 const root2 = ReactDOM.createRoot(document.getElementById('use--effect'));
 root2.render(
