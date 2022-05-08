@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -17,13 +17,17 @@ root.render(
 //
 
 function App2() {
+    const [emotion, setEmotion] = useState("");
+    return (
+        <>
+            <h1>current emotion is {emotion}</h1>
+            <button onClick={() => setEmotion("frustated")}> Frustate</button>
+            <button onClick={() => setEmotion("happy")}> happy</button>
 
-    const [, , light] = [
-        "boots",
-        "tent",
-        "headlamp",
+            <button onClick={() => setEmotion("sleeping")}> sleeping</button>
 
-    ]
+        </>
+    )
 }
 
 const root2 = ReactDOM.createRoot(document.getElementById('array-destructuring'));
