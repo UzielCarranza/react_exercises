@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -45,6 +45,41 @@ function App3() {
 
 }
 
+
+// ASYNCRONOUS REACT
+
+
+// https://api.github.com/users/UzielCarranza
+function App4({login}) {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://api.github.com/users/${login}`)
+            .then(res => res.json())
+            .then(setData);
+    }, []);
+
+    if (data) {
+        return (
+            <div>
+                <h1>{data.name}</h1>
+                <img src={data.avatar_url} alt={data.login} width={200} height={200}/>
+            </div>
+        )
+    }
+
+
+}
+
+
+const root2 = ReactDOM.createRoot(document.getElementById('use--effect'));
+root2.render(
+    <React.StrictMode>
+        <App2/>
+    </React.StrictMode>
+);
+
+
 const root3 = ReactDOM.createRoot(document.getElementById('reducer'));
 root3.render(
     <React.StrictMode>
@@ -52,10 +87,10 @@ root3.render(
     </React.StrictMode>
 );
 
-const root2 = ReactDOM.createRoot(document.getElementById('use--effect'));
-root2.render(
+const root4 = ReactDOM.createRoot(document.getElementById('use--effect'));
+root4.render(
     <React.StrictMode>
-        <App2/>
+        <App4 login={"UzielCarranza"}/>
     </React.StrictMode>
 );
 
