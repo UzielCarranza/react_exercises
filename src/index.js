@@ -2,7 +2,7 @@ import React, {useEffect, useReducer, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Routes, BrowserRouter as Router, Route} from "react-router-dom";
 import {Home, About, Contacts, Events} from "./pages";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -73,16 +73,16 @@ function App4({login}) {
         return <pre>{JSON.stringify(error, null, 2)} < /pre>
     }
 
-    if (!data){
+    if (!data) {
         return null;
     }
 
-        return (
-            <div>
-                <h1>{data.name}</h1>
-                <img src={data.avatar_url} alt={data.login} width={200} height={200}/>
-            </div>
-        )
+    return (
+        <div>
+            <h1>{data.name}</h1>
+            <img src={data.avatar_url} alt={data.login} width={200} height={200}/>
+        </div>
+    )
 
 }
 
@@ -110,19 +110,18 @@ root4.render(
 );
 
 
-
-
 //   ROUTERS
 
 
-
-function App5(){
+function App5() {
     return (
         <div>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/about" element={<About/>}/>
-            <Route path="/events" element={<Events/>}/>
-            <Route path="/contact" element={<Contacts/>}/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/events" element={<Events/>}/>
+                <Route path="/contact" element={<Contacts/>}/>
+            </Routes>
         </div>
     )
 
@@ -130,8 +129,8 @@ function App5(){
 
 const root5 = ReactDOM.createRoot(document.getElementById('routers'));
 root5.render(
-    <React.StrictMode>
-        <App5 login={"UzielCarranza"}/>
-    </React.StrictMode>
+    <Router>
+        <App5/>
+    </Router>
 );
 
