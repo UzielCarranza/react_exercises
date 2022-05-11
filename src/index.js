@@ -2,6 +2,8 @@ import React, {useEffect, useReducer, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Home, About, Contacts, Events} from "./pages";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -108,4 +110,28 @@ root4.render(
 );
 
 
+
+
+//   ROUTERS
+
+
+
+function App5(){
+    return (
+        <div>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/events" element={<Events/>}/>
+            <Route path="/contact" element={<Contacts/>}/>
+        </div>
+    )
+
+}
+
+const root5 = ReactDOM.createRoot(document.getElementById('routers'));
+root5.render(
+    <React.StrictMode>
+        <App5 login={"UzielCarranza"}/>
+    </React.StrictMode>
+);
 
