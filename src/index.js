@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {Routes, BrowserRouter as Router, Route} from "react-router-dom";
-import {Home, About, Contacts, Events} from "./pages";
+import {Home, About, Contacts, Events, Whoops404} from "./pages";
 
 import {Link} from "react-router-dom";
 
@@ -123,6 +123,7 @@ function App5() {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/events" element={<Events/>}/>
                 <Route path="/contact" element={<Contacts/>}/>
+                <Route path="*" element={<Whoops404/>}/>
             </Routes>
         </div>
     )
