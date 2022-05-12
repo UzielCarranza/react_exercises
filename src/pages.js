@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {useLocation} from "react-router";
+import {useLocation, Outlet} from "react-router";
 
 
 export function Home() {
@@ -22,14 +22,7 @@ export function About() {
     return (
         <div>
             <h1>[About page]</h1>
-            <nav>
-                <Link to="home">Home</Link>
-                <Link to="about">About</Link>
-
-                <Link to="events">Events</Link>
-
-                <Link to="contacts">Contact</Link>
-            </nav>
+            <Outlet/>
         </div>
     )
 }
@@ -38,14 +31,6 @@ export function Events() {
     return (
         <div>
             <h1>[Events]</h1>
-            <nav>
-                <Link to="about">Home</Link>
-                <Link to="about">About</Link>
-
-                <Link to="events">Events</Link>
-
-                <Link to="contacts">Contact</Link>
-            </nav>
         </div>
     )
 }
@@ -54,14 +39,6 @@ export function Contacts() {
     return (
         <div>
             <h1>[Contacts]</h1>
-            <nav>
-                <Link to="home">Home</Link>
-                <Link to="about">About</Link>
-
-                <Link to="events">Events</Link>
-
-                <Link to="contacts">Contacts</Link>
-            </nav>
         </div>
     )
 }
@@ -74,5 +51,29 @@ export function Whoops404() {
             <h1>Resource not found at {location.pathname}!</h1>
         </div>
     )
+}
 
+export function Services(){
+    return (
+        <div>
+            <h1>our services</h1>
+        </div>
+    )
+}
+
+
+export function CompanyHistory(){
+    return (
+        <div>
+            <h1>our Company History</h1>
+        </div>
+    )
+}
+
+export function Location(){
+    return (
+        <div>
+            <h1>our Location</h1>
+        </div>
+    )
 }
